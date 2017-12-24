@@ -28,7 +28,7 @@ class Bot(object):
             intro = u""
             # If the user speak for the first time, display a welcome message
             if not user.has_been_asked_a_question():
-                intro = u"Yo ! Je vais vous poser des questions puis vous faire une recommandation.\n"
+                intro = u"Yo belle Clara ! Je vais vous poser des questions puis vous faire une recommandation.\n"
 
             message = self.ask_question(user)
             return intro + message

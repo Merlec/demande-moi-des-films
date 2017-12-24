@@ -63,10 +63,32 @@ class Recommendation:
     # Compute the similarity between two users
     @staticmethod
     def get_similarity(user_a, user_b):
-        return 1
+        #We look at every movie in movies 
+        #because if we just look at good ratings for a will not consider 
+        #a movie bad rated by a. Or we just check good and bad ratings for a and b 
+        similarity = 0
+        count = 0
+        for movie in user_a.good_ratings :
+            if movie in user_b.good_ratings:
+                similarity +=1
+                count+=1
+            elif movie in user_b.bad_ratings:
+                similarity -=1
+                count+=1
+        for movie in user_a.bad_ratings :
+            if movie in user_b.good_ratings:
+                similarity -=1
+                count+=1
+            elif movie in user_b.bad_ratings:
+                similarity +=1
+                count+=1
+        
+        return similarity/count
 
     # Compute the similarity between a user and all the users in the data set
     def compute_all_similarities(self, user):
+        for other_user in self.test.users
+            get_similarity
         return []
 
     @staticmethod
